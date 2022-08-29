@@ -37,5 +37,5 @@ sudo -iu postgres psql < ./threatconnect.sql
 # sudo -iu postgres psql -U $TC_PSQL_USER -d $TC_PSQL_NAME < /opt/threatconnect/app/scripts/postgres/ThreatConnect-__version__.sql
 cp ./pg_hba.conf /var/lib/pgsql/11/data
 chown -R postgres:postgres /var/lib/pgsql/11/data 
-systemctl restart postgresql11
+systemctl restart postgresql-11
 
