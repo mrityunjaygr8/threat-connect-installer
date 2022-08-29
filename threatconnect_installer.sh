@@ -18,7 +18,6 @@ sudo -u opensearch mv opensearch-1.2.3/config/opensearch.yml{,.bak}
 popd
 sudo -u opensearch cp ./opensearch.yml /opt/opensearch-1.2.3/config/opensearch.yml
 pushd /opt
-mkdir opensearch-1.2.3/logs
 chown -R opensearch:opensearch opensearch-1.2.3
 sudo -u opensearch opensearch-1.2.3/bin/opensearch-plugin install --batch ingest-attachment
 popd
