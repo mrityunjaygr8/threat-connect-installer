@@ -15,12 +15,14 @@ tar -zxf opensearch-1.2.3-linux-x64.tar.gz
 groupadd -g 1001 opensearch && useradd opensearch -u 1001 -g 1001
 chown -R opensearch:opensearch opensearch-1.2.3
 sudo -u opensearch opensearch-1.2.3/config/opensearch.yml{,.bak}
+popd
 sudo -u opensearch cp ./opensearch.yml opensearch-1.2.3/config
-mkdir /opt/opensearch-1.2.3/logs
+pushd /opt
+mkdir opensearch-1.2.3/logs
 chown -R opensearch:opensearch opensearch-1.2.3
 sudo -u opensearch opensearch-1.2.3/bin/opensearch-plugin install --batch ingest-attachment
-cp ./opensearch.sh /etc/init.d/opensearch 
 popd
+cp ./opensearch.sh /etc/init.d/opensearch 
 chmod 755 /etc/init.d/opensearch
 service opensearch start
 
@@ -35,5 +37,5 @@ sudo -iu postgres psql < ./threatconnect.sql
 # sudo -iu postgres psql -U $TC_PSQL_USER -d $TC_PSQL_NAME < /opt/threatconnect/app/scripts/postgres/ThreatConnect-__version__.sql
 cp ./pg_hba.conf /var/lib/pgsql/11/data
 chown -R postgres:postgres /var/lib/pgsql/11/data 
-systemctl restart postgresql-11
+systemctl restart postgresql11
 
