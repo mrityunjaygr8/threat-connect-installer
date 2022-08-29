@@ -7,7 +7,8 @@ Git
 sudo yum install -y git
 ```
 
-## How to Run
+## How to Run (as root)
 ```bash
+sudo su
 ./threatconnect_installer.sh
 ```
