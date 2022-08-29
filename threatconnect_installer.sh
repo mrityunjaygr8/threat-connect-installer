@@ -14,7 +14,7 @@ wget https://artifacts.opensearch.org/releases/bundle/opensearch/1.2.3/opensearc
 tar -zxf opensearch-1.2.3-linux-x64.tar.gz
 groupadd -g 1001 opensearch && useradd opensearch -u 1001 -g 1001
 chown -R opensearch:opensearch opensearch-1.2.3
-sudo -u opensearch opensearch-1.2.3/config/opensearch.yml{,.bak}
+sudo -u opensearch mv opensearch-1.2.3/config/opensearch.yml{,.bak}
 popd
 sudo -u opensearch cp ./opensearch.yml opensearch-1.2.3/config
 pushd /opt
