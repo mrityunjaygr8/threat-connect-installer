@@ -16,7 +16,7 @@ groupadd -g 1001 opensearch && useradd opensearch -u 1001 -g 1001
 chown -R opensearch:opensearch opensearch-1.2.3
 sudo -u opensearch mv opensearch-1.2.3/config/opensearch.yml{,.bak}
 popd
-sudo -u opensearch cp ./opensearch.yml opensearch-1.2.3/config
+sudo -u opensearch cp ./opensearch.yml /opt/opensearch-1.2.3/config/opensearch.yml
 pushd /opt
 mkdir opensearch-1.2.3/logs
 chown -R opensearch:opensearch opensearch-1.2.3
