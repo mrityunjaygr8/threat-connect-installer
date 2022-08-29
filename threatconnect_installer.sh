@@ -29,8 +29,8 @@ service opensearch start
 # setup postgres
 yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum -y install postgresql11-server postgresql11
-systemctl enable --now postgresql-11
 PGSETUP_INITDB_OPTIONS="--lc-collate=en_US.UTF-8 --lc-ctype=en_US.UTF-8" /usr/pgsql-11/bin/postgresql-11-setup initdb
+systemctl enable --now postgresql-11
 firewall-cmd --permanent --zone=public --add-service=postgresql
 firewall-cmd --reload
 sudo -iu postgres psql < ./threatconnect.sql
